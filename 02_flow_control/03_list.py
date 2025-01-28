@@ -4,8 +4,13 @@
 # Pueden contener elementos de diferentes tipos.
 ###
 
-import os
-os.system("clear")
+import os           # importa el modulo os
+import platform     # importa el modulo platform
+
+if platform.system() == "Windows":  
+    os.system("cls")  # limpia la consola en Windows
+else:
+    os.system("clear")  # limpia la consola en sistemas Unix
 
 # Creación de listas
 print("\nCrear listas")
@@ -63,19 +68,58 @@ print(lista1)
 # Recuperar longitud de una lista
 print("Longitud de la lista", len(lista1))
 
+
+if platform.system() == "Windows":  
+    os.system("cls")  # limpia la consola en Windows
+else:
+    os.system("clear")  # limpia la consola en sistemas Unix
+    
 ###
 # EJERCICOS
 ###
+
+print ("Ejercicios de listas")
+print ("\nEjercicio 1: El mensaje secreto")
 
 # Ejercicio 1: El mensaje secreto
 # Dada la siguiente lista:
 # mensaje = ["C", "o", "d", "i", "g", "o", " ", "s", "e", "c", "r", "e", "t", "o"]
 # Utilizando slicing y concatenación, crea una nueva lista que contenga solo el mensaje "secreto".
 
+mensaje = ["C", "o", "d", "i", "g", "o", " ", "s", "e", "c", "r", "e", "t", "o"]
+print("Mensaje Original: ", mensaje)
+
+nuevo = mensaje[7:14]  # debo obtener los elementos desde el índice 7 hasta el 14 (slicing)
+nuevo = "".join(nuevo) # debo concatenar los elementos de la lista
+print("Mensaje final: ", nuevo)
+
+input("\nPresiona Enter para continuar...")
+
+print("\nEjercicio 2: Intercambio de posiciones")
+
 # Ejercicio 2: Intercambio de posiciones
 # Dada la siguiente lista:
 # numeros = [10, 20, 30, 40, 50]
 # Intercambia la primera y la última posición utilizando solo asignación por índice.
+
+numeros = [10, 20, 30, 40, 50]
+print("Lista Original: ", numeros)
+numeros[0], numeros[-1] = numeros[-1], numeros[0] # intercambio de valores en una sola linea
+print("Intercambio de valores (primera y ultima posicion): ", numeros)
+
+#utiliza la desestructuración para asignar valores simultáneamente:
+#
+# Primero, Python evalúa el lado derecho: (numeros[-1], numeros[0]), lo que equivale a (50, 10).
+# Luego asigna el valor de 50 a numeros[0] y el valor de 10 a numeros[-1] en una sola operación.
+# Es una opcion elegante y eficiente frente al uso de una variable temporal.
+# temp = numeros[0]
+# numeros[0] = numeros[-1]
+# numeros[-1] = temp 
+
+input("\nPresiona Enter para continuar...")
+
+print("\nEjercicio 3: El sándwich de listas")
+
 
 # Ejercicio 3: El sándwich de listas
 # Dadas las siguientes listas:
@@ -84,16 +128,53 @@ print("Longitud de la lista", len(lista1))
 # pan_abajo = ["pan abajo"]
 # Crea una lista llamada sandwich que contenga el pan de arriba, los ingredientes y el pan de abajo, en ese orden.
 
+pan = ["pan arriba"]
+ingredientes = ["jamón", "queso", "tomate"]
+pan_abajo = ["pan abajo"]
+
+print ("Pan: ", pan)
+print ("Ingredientes: ", ingredientes)
+print ("Pan Abajo: ", pan_abajo)
+
+sandwich = pan + ingredientes + pan_abajo
+print("Sandwich: ", sandwich)
+
+
+input("\nPresiona Enter para continuar...")
+print("\nEjercicio 4: Duplicando la lista")
+
 # Ejercicio 4: Duplicando la lista
 # Dada una lista:
 # lista = [1, 2, 3]
 # Crea una nueva lista que contenga los elementos de la lista original duplicados.
 # Ejemplo: [1, 2, 3] -> [1, 2, 3, 1, 2, 3]
 
+list = [1, 2, 3]
+duplicada = list * 2
+print("Lista original: ", list)
+print("Lista duplicada: ", duplicada)
+
+input("\nPresiona Enter para continuar...")
+print("\nEjercicio 5: Extrayendo el centro")
+
 # Ejercicio 5: Extrayendo el centro
 # Dada una lista con un número impar de elementos, extrae el elemento que se encuentra en el centro de la lista utilizando slicing.
 # Ejemplo: lista = [10, 20, 30, 40, 50] -> El centro es 30
 
+lista = [10, 20, 30, 40, 50]
+centro = len(lista) // 2
+print("Lista: ", lista)
+print("Centro de la lista: ", lista[centro])
+
+input("\nPresiona Enter para continuar...")
+print("\nEjercicio 6: Reversa parcial (imprime solo la primera mitad de la lista invertida el resto normal)")
+
 # Ejercicio 6: Reversa parcial
 # Dada una lista, invierte solo la primera mitad de la lista (utilizando slicing y concatenación).
 # Ejemplo: lista = [1, 2, 3, 4, 5, 6] -> Resultado: [3, 2, 1, 4, 5, 6]
+
+lista = [1, 2, 3, 4, 5, 6]
+mitad = len(lista) // 2
+lista_invertida = lista[:mitad][::-1] + lista[mitad:]
+print("Lista original: ", lista)
+print("Lista invertida: ", lista_invertida)

@@ -3,8 +3,13 @@
 # Permiten ejecutar bloques de código solo si se cumplen ciertas condiciones.
 ###
 
-import os
-os.system("clear")
+import os           # importa el modulo os
+import platform     # importa el modulo platform
+
+if platform.system() == "Windows":  
+    os.system("cls")  # limpia la consola en Windows
+else:
+    os.system("clear")  # limpia la consola en sistemas Unix
 
 print("\n Sentencia simple condicional")
 
@@ -110,6 +115,12 @@ edad = 17
 mensaje = "Es mayor de edad" if edad >= 18 else "Es menor de edad"
 print(mensaje)
 
+if platform.system() == "Windows":  
+    os.system("cls")  # limpia la consola en Windows
+else:
+    os.system("clear")  # limpia la consola en sistemas Unix
+
+print("\n Ejericio 1: Determinar el mayor de dos números")
 ###
 # EJERCICOS
 ###
@@ -118,13 +129,62 @@ print(mensaje)
 # Pide al usuario que introduzca dos números y muestra un mensaje
 # indicando cuál es mayor o si son iguales
 
+numero1 = float(input("Ingresa el primer numero: "))
+numero2 = float(input("Ingresa el segundo numero: "))
+
+if numero1 > numero2:
+  print(f"{numero1} es mayor que {numero2}")
+elif numero2 > numero1:
+  print(f"{numero2} es mayor que {numero1}")
+else:
+  print("Los números son iguales")
+
+input("Presiona Enter para continuar...")
+
+print("\n Ejericio 2: Calculadora simple")
+
 # Ejercicio 2: Calculadora simple
 # Pide al usuario dos números y una operación (+, -, *, /)
 # Realiza la operación y muestra el resultado (maneja la división entre zero)
 
+numero1 = float(input("Ingresa el primer numero: "))
+numero2 = float(input("Ingresa el segundo numero: "))
+operacion = input("Ingresa la operación (+, -, *, /): ")
+
+if operacion == "+":
+  resultado = numero1 + numero2
+elif operacion == "-":
+  resultado = numero1 - numero2
+elif operacion == "*":
+  resultado = numero1 * numero2
+elif operacion == "/":
+  if numero2 == 0:
+    print("No se puede dividir por cero")
+  else:
+    resultado = numero1 / numero2
+else:
+  print("Operación no reconocida")
+
+print(f"El resultado es: {resultado}")
+
+input("Presiona Enter para continuar...")
+
+print("\n Ejericio 3: Año bisiesto")
+
 # Ejercicio 3: Año bisiesto
 # Pide al usuario que introduzca un año y determina si es bisiesto.
 # Un año es bisiesto si es divisible por 4, excepto si es divisible por 100 pero no por 400.
+
+anio = int(input("Ingresa un año: "))
+
+if (anio % 4 == 0 and anio % 100 != 0) or anio % 400 == 0:
+  print(f"{anio} es un año bisiesto.")
+else:
+  print(f"{anio} no es un año bisiesto.")
+  
+input("Presiona Enter para continuar...")
+
+print("\n Ejericio 4: Categorizar edades")
 
 # Ejercicio 4: Categorizar edades
 # Pide al usuario que introduzca una edad y la clasifique en:
@@ -133,3 +193,18 @@ print(mensaje)
 # - Adolescente (13-17 años)
 # - Adulto (18-64 años)
 # - Adulto mayor (65 años o más)
+
+edad = int(input("Ingresa tu edad: "))
+
+if 0 <= edad <= 2:
+  print("Bebé")
+elif 3 <= edad <= 12:
+  print("Niño")
+elif 13 <= edad <= 17:
+  print("Adolescente")
+elif 18 <= edad <= 64:
+  print("Adulto")
+elif edad >= 65:
+  print("Adulto mayor")
+else:
+  print("Edad no reconocida")

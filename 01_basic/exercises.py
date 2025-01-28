@@ -3,6 +3,16 @@
 # Ejercicios para practicar los conceptos aprendidos en las lecciones.
 ###
 
+import os           # importa el modulo os
+import platform     # importa el modulo platform
+
+if platform.system() == "Windows":  
+    os.system("cls")  # limpia la consola en Windows
+else:
+    os.system("clear")  # limpia la consola en sistemas Unix
+    
+
+print("Ejercicios de la lección 1: Conceptos básicos")
 print("\nEjercicio 1: Imprimir mensajes")
 print("Escribe un programa que imprima tu nombre y tu ciudad en líneas separadas.")
 
@@ -20,6 +30,11 @@ print(f"Vives en {city}")
 print(f"Salida por consola en 2 lineas usando 1 lineas de codigo")
 print(f"Hola {name}, encantado de conocerte\nVives en {city}")
 
+if platform.system() == "Windows":  
+    os.system("PAUSE") # pausa la consola en Windows
+else:
+    input("Presiona Enter para continuar...") # pausa la consola en sistemas Unix
+
 
 print("--------------")
 
@@ -36,6 +51,11 @@ print(f"b: {b} es de tipo {type(b)}")
 print(f"c: {c} es de tipo {type(c)}")
 print(f"d: {d} es de tipo {type(d)}")
 print(f"e: {e} es de tipo {type(e)}")
+
+if platform.system() == "Windows":  
+    os.system("PAUSE") # pausa la consola en Windows
+else:
+    input("Presiona Enter para continuar...") # pausa la consola en sistemas Unix
 
 print("--------------")
 
@@ -56,6 +76,11 @@ casi_cuatro = int(3.99)
 print(f"el numero 3.99 a entero es: {casi_cuatro}")
 print(f"al castear un float a entero se pierde la parte decimal, no redondea")
 
+if platform.system() == "Windows":  
+    os.system("PAUSE") # pausa la consola en Windows
+else:
+    input("Presiona Enter para continuar...") # pausa la consola en sistemas Unix
+    
 print("--------------")
 
 print("\nEjercicio 4: Variables")
@@ -70,6 +95,11 @@ altura = 1.76
 
 print(f"Hola! Me llamo {name} y tengo {age} anos, mido {altura} metros")
 
+if platform.system() == "Windows":  
+    os.system("PAUSE") # pausa la consola en Windows
+else:
+    input("Presiona Enter para continuar...") # pausa la consola en sistemas Unix
+    
 print("--------------")
 
 print("\nEjercicio 5: Números")

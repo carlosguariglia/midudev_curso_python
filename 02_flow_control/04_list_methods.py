@@ -3,8 +3,13 @@
 # Los métodos más importantes para trabajar con listas
 ###
 
-import os
-os.system("clear")
+import os           # importa el modulo os
+import platform     # importa el modulo platform
+
+if platform.system() == "Windows":  
+    os.system("cls")  # limpia la consola en Windows
+else:
+    os.system("clear")  # limpia la consola en sistemas Unix
 
 lista1 = ['a', 'b', 'c', 'd']
 
@@ -70,16 +75,33 @@ print(animals.count('🐶')) # Cuantas veces aparece el elemento '🐶' -> 2
 print('🐼' in animals) # Comprueba si hay un '🐼' en la lista -> True
 print('🐹' in animals) # -> False
 
+if platform.system() == "Windows":  
+    os.system("cls")  # limpia la consola en Windows
+else:
+    os.system("clear")  # limpia la consola en sistemas Unix
+
 ###
 # EJERCICOS
 # Usa siempre que puedas los métodos que has aprendido
 ###
+
+print("\n Ejericio 1: Añadir y modificar elementos")
 
 # Ejercicio 1: Añadir y modificar elementos
 # Crea una lista con los números del 1 al 5.
 # Añade el número 6 al final usando append().
 # Inserta el número 10 en la posición 2 usando insert().
 # Modifica el primer elemento de la lista para que sea 0.
+
+lista = [1, 2, 3, 4, 5]
+print(f"Lista original: {lista}")
+lista.append(6)  # Añade el número 6 al final
+lista.insert(2, 10) # Inserta el número 10 en la posición 2
+lista[0] = 0 # Modifica el primer elemento de la lista para que sea 0
+print(f"Lista modificada: {lista}")
+
+input("\nPresiona Enter para continuar...")
+print("\nEjercicio 2: Combinar y limpiar listas")
 
 # Ejercicio 2: Combinar y limpiar listas
 # Crea dos listas:
@@ -90,16 +112,62 @@ print('🐹' in animals) # -> False
 # Elimina el elemento en el índice 3 de lista_a usando pop(). Imprime el elemento eliminado.
 # Limpia completamente lista_b usando clear().
 
+lista_a = [1, 2, 3]
+lista_b = [4, 5, 6, 1, 2]
+
+print(f"Lista A: {lista_a}")
+print(f"Lista B: {lista_b}")
+
+lista_a.extend(lista_b) # Extiende lista_a con lista_b
+print(f"Lista A extendida: {lista_a}")
+
+lista_a.remove(1) # Elimina la primera aparición del número 1 en lista_a
+print(f"Lista A sin el 1: {lista_a}")
+
+elemento_eliminado = lista_a.pop(3) # Elimina el elemento en el índice 3 de lista_a
+print(f"Elemento eliminado: {elemento_eliminado}")
+print(f"Lista A sin el elemento eliminado: {lista_a}")
+
+lista_b.clear() # Limpia completamente lista_b
+print(f"Lista B limpia: {lista_b}")
+
+input("\nPresiona Enter para continuar...")
+print("\nEjercicio 3: Slicing y eliminación con del")
+
 # Ejercicio 3: Slicing y eliminación con del
 # Crea una lista con los números del 1 al 10.
 # Utiliza slicing y del para eliminar los elementos desde el índice 2 hasta el 5 (sin incluir el 5).
 # Imprime la lista resultante.
+
+lista = list(range(1, 11))
+print(f"Lista original: {lista}")
+
+del lista[2:6] # Elimina los elementos desde el índice 2 hasta el 5 (sin incluir el 5)
+print(f"Lista con elementos eliminados: {lista}")
+
+input("\nPresiona Enter para continuar...")
+print("\nEjercicio 4: Ordenar y contar")
 
 # Ejercicio 4: Ordenar y contar
 # Crea una lista con los siguientes números: [5, 2, 8, 1, 9, 4, 2].
 # Ordena la lista de forma ascendente usando sort().
 # Cuenta cuántas veces aparece el número 2 en la lista usando count().
 # Comprueba si el número 7 está en la lista usando in.
+
+lista = [5, 2, 8, 1, 9, 4, 2]
+print(f"Lista original: {lista}")
+
+lista.sort() # Ordena la lista de forma ascendente
+print(f"Lista ordenada: {lista}")
+
+cantidad_dos = lista.count(2) # Cuenta cuántas veces aparece el número 2 en la lista
+print(f"Cantidad de 2: {cantidad_dos}")
+
+esta_el_siete = 7 in lista # Comprueba si el número 7 está en la lista
+print("¿Está el 7?:", "Sí" if esta_el_siete else "No")
+    
+input("\nPresiona Enter para continuar...")
+print("\nEjercicio 5: Copia vs. Referencia")
 
 # Ejercicio 5: Copia vs. Referencia
 # Crea una lista llamada original con los números [1, 2, 3].
@@ -109,6 +177,41 @@ print('🐹' in animals) # -> False
 # Modifica el primer elemento de la lista referencia a 10.
 # Imprime las cuatro listas (original, copia_1, copia_2, referencia) y observa los cambios.
 
+original = [1, 2, 3]
+copia_1 = original[:]
+copia_2 = original.copy()
+referencia = original
+
+
+
+
+
+print(f"Original: {original}")
+print(f"Copia 1: copiada usando slicing {copia_1}")
+print(f"Copia 2: copiada usando copy() {copia_2}")
+print(f"Referencia: copiada usando referencia {referencia}")
+
+print("Modificando el primer elemento de la lista referencia a 10")
+referencia[0] = 10
+
+print(f"Original: {original}")
+print(f"Copia 1: copiada usando slicing {copia_1}")
+print(f"Copia 2: copiada usando copy() {copia_2}")
+print(f"Referencia: copiada usando referencia {referencia}")
+
+
+print ("Observa que al modificar la referencia se modifica la original")
+print ("Esto es porque las listas son mutables y las referencias apuntan al mismo objeto")
+print ("Si quieres copiar una lista sin que se modifique la original, usa slicing o copy()")
+
+input("\nPresiona Enter para continuar...")
+print("\nEjercicio 6: Ordenar strings sin diferenciar mayúsculas y minúsculas.")
+
 # Ejercicio 6: Ordenar strings sin diferenciar mayúsculas y minúsculas.
 # Crea una lista con las siguientes cadenas: ["Manzana", "pera", "BANANA", "naranja"].
 # Ordena la lista sin diferenciar entre mayúsculas y minúsculas.
+
+frutas = ["Manzana", "pera", "BANANA", "naranja", "KIWI", "fresa"]
+print(f"Frutas: {frutas}")
+frutas.sort(key=str.lower) # Ordena la lista sin diferenciar entre mayúsculas y minúsculas
+print(f"Frutas ordenadas: {frutas}")
