@@ -164,7 +164,15 @@ cantidad_dos = lista.count(2) # Cuenta cuántas veces aparece el número 2 en la
 print(f"Cantidad de 2: {cantidad_dos}")
 
 esta_el_siete = 7 in lista # Comprueba si el número 7 está en la lista
-print("¿Está el 7?:", "Sí" if esta_el_siete else "No")
+# una forma de hacerlo en una linea es:
+# print("¿Está el 7?:", "Sí" if esta_el_siete else "No")
+    
+# otra forma es: (manipulando el salto de linea por defecto de print)
+print("¿Está el 7?: ", end="")  # Evita el salto de línea
+if esta_el_siete:
+    print("Sí")
+else:
+    print("No")
     
 input("\nPresiona Enter para continuar...")
 print("\nEjercicio 5: Copia vs. Referencia")
