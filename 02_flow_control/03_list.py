@@ -12,6 +12,10 @@ if platform.system() == "Windows":
 else:
     os.system("clear")  # limpia la consola en sistemas Unix
 
+from os import system
+if system("clear") != 0: system("cls")
+
+
 # Creación de listas
 print("\nCrear listas")
 lista1 = [1, 2, 3, 4, 5] # lista de enteros
@@ -45,7 +49,7 @@ print(lista1[:3]) # [1, 2, 3]
 print(lista1[3:]) # [4, 5]
 print(lista1[:]) # [1, 2, 3, 4, 5]
 
-# HAY MÁS MAGIA
+# El tercer parámetro es el paso (step)
 lista1 = [1, 2, 3, 4, 5, 6, 7, 8]
 print(lista1[::2]) # para devolver índices pares
 print(lista1[::-1]) # para devolver índices inversos
@@ -75,7 +79,7 @@ else:
     os.system("clear")  # limpia la consola en sistemas Unix
     
 ###
-# EJERCICOS
+# EJERCICIOS
 ###
 
 print ("Ejercicios de listas")
